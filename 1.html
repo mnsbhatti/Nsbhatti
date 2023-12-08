@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+</head>
+<body>
+<h3>Task 1</h3>
+<script>
+  // Function to check if a value is a number (integer or float)
+  function isNumeric(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+  }
+
+  // Function to perform basic arithmetic operations
+  function performOperation(operator, num1, num2) {
+    switch (operator) {
+      case '+':
+        return num1 + num2;
+      case '-':
+        return num1 - num2;
+      case '*':
+        return num1 * num2;
+      case '/':
+        return num1 / num2;
+      default:
+        return 'Invalid operator';
+    }
+  }
+
+  // Get input values from the user
+  const inputValue1 = prompt('Enter the first value:');
+  const inputValue2 = prompt('Enter the second value:');
+  const operator = prompt('Enter the operator (+, -, *, /):');
+
+  // Check if the entered values are numeric
+  if (isNumeric(inputValue1) && isNumeric(inputValue2)) {
+    // Parse input values as numbers
+    const num1 = parseFloat(inputValue1);
+    const num2 = parseFloat(inputValue2);
+
+    // Perform arithmetic operation
+    const result = performOperation(operator, num1, num2);
+
+    // Display the result
+    alert(`Result: ${result}`);
+  } else if (typeof inputValue1 === 'string' && typeof inputValue2 === 'string' && operator === '+') {
+    // Concatenate strings if the operator is '+'
+    const result = inputValue1 + inputValue2;
+    alert(`Concatenated Result: ${result}`);
+  } else {
+    alert('Invalid input. Please enter numeric values for arithmetic operations or strings for addition.');
+  }
+</script>
+
+</body>
+</html>
